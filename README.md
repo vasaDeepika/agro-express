@@ -19,30 +19,36 @@ A premium Full-Stack E-commerce platform for fresh, chemical-free vegetables.
    ```bash
    git clone https://github.com/vasaDeepika/agro-express.git
    ```
-2. **Install All Dependencies**:
-   Run this in the root folder to install both backend and frontend dependencies:
+2. **Setup Dependencies**:
+   Run this in the root folder. This is the **most important** step to avoid errors:
    ```bash
-   npm run install-all
+   npm run setup
    ```
 3. **Configure Environment**:
    - Create a `.env` file in the `server` folder.
-   - Use `.env.example` as a template:
-     ```bash
-     cp server/.env.example server/.env
+   - Add these lines:
+     ```env
+     PORT=5000
+     MONGO_URI=mongodb://localhost:27017/agro-express
+     NODE_ENV=development
      ```
-   - Add your `MONGO_URI` and `PORT`.
+   *(Note: You can replace the MONGO_URI with your Atlas connection string if preferred.)*
 
-4. **Seed the Database (Optional)**:
-   If you want to populate the database with fresh products:
+4. **Seed the Database**:
+   Populate your local database with the vegetable products:
    ```bash
-   node server/seedDatabase.js
+   cd server
+   node seedDatabase.js
+   cd ..
    ```
 
 5. **Run the Application**:
-   Start both Frontend and Backend with one command:
+   Start everything with one command:
    ```bash
    npm run dev
    ```
+   - **Frontend**: http://localhost:3001
+   - **Backend**: http://localhost:5000
 
 ## 🎨 Credits
 Developed with a focus on "Agro-Luxe" design aesthetics and high-performance user experience.
