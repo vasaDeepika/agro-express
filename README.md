@@ -26,8 +26,19 @@ A premium Full-Stack E-commerce platform for fresh, chemical-free vegetables.
    ```
 3. **Configure Environment**:
    - Create a `.env` file in the `server` folder.
-   - Add `MONGO_URI` and `PORT`.
-4. **Run the Application**:
+   - Use `.env.example` as a template:
+     ```bash
+     cp server/.env.example server/.env
+     ```
+   - Add your `MONGO_URI` and `PORT`.
+
+4. **Seed the Database (Optional)**:
+   If you want to populate the database with fresh products:
+   ```bash
+   node server/seedDatabase.js
+   ```
+
+5. **Run the Application**:
    Start both Frontend and Backend with one command:
    ```bash
    npm run dev
