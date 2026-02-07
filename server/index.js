@@ -21,16 +21,17 @@ const __dirname = path.dirname(__filename);
 const app = express()
 app.use(express.json());
 
-const connectionDB = () => {
-
-  const conn = mongoose.connect(process.env.MONGO_URI);
-
-  if (conn) {
-    console.log("MongoDB connected Successfully.")
+const connectionDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected Successfully.");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);
   }
-}
+};
 
-connectionDB();
+await connectionDB();
 
 app.get('/api/v1/healths', getApiHealths);
 

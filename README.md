@@ -46,3 +46,15 @@ A premium Full-Stack E-commerce platform for fresh, chemical-free vegetables.
 
 ## 🎨 Credits
 Developed with a focus on "Agro-Luxe" design aesthetics and high-performance user experience.
+
+---
+
+## 🛠️ Troubleshooting
+
+### `'react-scripts' is not recognized`
+If you see this error when running `npm start` in the `client` folder, it means dependencies are missing. 
+**Solution**: Run the setup command from the **root folder**:
+```bash
+npm run setup
+```
+This will automatically install all necessary packages for the root, server, and client.
