@@ -167,14 +167,6 @@ const seedProducts = [
         description: "Nutrient-packed fresh spinach leaves. Rich in iron, vitamins, and perfect for healthy cooking.",
         img: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=800&q=80",
         available: true
-    },
-    {
-        productName: "Zucchini",
-        price: 45,
-        quantity: "1 kg",
-        description: "Fresh green zucchini, tender and versatile. Perfect for roasting, sautéing, or spiralizing into healthy noodles.",
-        img: "https://images.unsplash.com/photo-1590301157890-4810ed352733?w=800&q=80",
-        available: true
     }
 ];
 
