@@ -65,14 +65,16 @@ app.post('/api/v1/sellsupplyes', postApisellsupplyes);
 app.post('/api/v1/orders', postApiOrders);
 app.get('/api/v1/orders/user/:id', getApiOrdersByUserId);
 
+const port = process.env.PORT || 8080;
+
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
   });
 }
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`)
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
 });
