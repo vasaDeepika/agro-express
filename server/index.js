@@ -5,6 +5,8 @@ import path from 'path';
 import Supplier from './models/Supplier.js';
 
 
+import { fileURLToPath } from 'url';
+
 dotenv.config();
 
 import { getApiHealths } from './controllers/health.js'
@@ -13,10 +15,11 @@ import { postApiProduct, getApiProductsById, putApiTransactionsById, getApiProdu
 import { postApisellsupplyes } from './controllers/supplier.js'
 import { postApiOrders, getApiOrdersByUserId } from './controllers/order.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express()
 app.use(express.json());
-
-const __dirname = path.resolve();
 
 const connectionDB = () => {
 
@@ -68,10 +71,10 @@ app.get('/api/v1/orders/user/:id', getApiOrdersByUserId);
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client', 'build')));
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
   });
 }
 
